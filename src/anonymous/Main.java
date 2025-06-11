@@ -11,6 +11,24 @@ public class Main {
 
         messenger.getNotification();
         System.out.println();
+        System.out.println("=============");
 
+
+        ATM atm = new ATM();
+        atm.withdraw(3500, new Notifier() {
+            @Override
+            public void send(String message) {
+                System.out.println("Sending SMS: "+message);
+            };
+        });
+
+        System.out.println();
+
+        atm.withdraw(3500, new Notifier() {
+            @Override
+            public void send(String message) {
+                System.out.println("Sending Email: "+message);
+            };
+        });
     }
 }
