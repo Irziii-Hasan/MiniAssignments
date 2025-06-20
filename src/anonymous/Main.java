@@ -1,9 +1,6 @@
 package anonymous;
 
-import java.text.RuleBasedCollator;
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
@@ -90,6 +87,17 @@ public class Main {
 
         myList.sort(( o1,  o2)-> o1.compareTo(o2));
         myList.sort(String::compareTo);
+
+        System.out.println();
+
+        Utils utils = new Utils();
+
+        System.out.println("-- Lambda expression --");
+        myList.forEach(name ->utils.greet(name));
+
+        System.out.println();
+        System.out.println("-- lambda with method reference");
+        myList.forEach(utils::greet);
 
 
     }
